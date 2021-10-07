@@ -1,0 +1,6 @@
+ligne 1, 2 variables: posX, posY du joueur
+ligne 2, 1 variable : nombre P de plateformes
+Pour les P lignes suivants, 3 variables: taille, posX, posY de la plateforme
+ligne P+3, 1 variable: nombre E d'ennemis
+Pour les E lignes suivants, 4 variables: numéro de la plateforme où il se trouve, vitesse, taille, portée d'attaque de l'ennemi
+ligne P+E+4, 1 variable: numéro de la plateforme où se trouve la fin du niveau

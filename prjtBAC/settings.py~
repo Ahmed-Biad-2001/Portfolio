@@ -1,0 +1,6 @@
+windowSize = (1366,768)
+fullscreen = True
+cursorSpeed = 1
+masterVolume = 1
+ips = 120
+levelFolder = "Levels/"
