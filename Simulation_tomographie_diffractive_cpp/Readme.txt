@@ -3,6 +3,8 @@ Ceci est une application réalisée durant un stage au sein du laboratoire Huber
 
 Elle permet de faire une simulation d'un microscope à tomographie diffractive, qui s'agit d'une technique de microscopie qui permet l'acquisition d'hologrammes 2D à partir d'un échantillon 3D, cet échantillon pouvant être une simple bille sphérique, un grain de pollen, ou même une bactérie. La simulation est une partie vitale pour la reconstruction numérique de l'hologramme, et ma mission concernait  la prise en connaissance de l'algorithme de simulation écrite en matlab, et de le réecrire C++ avec la bibliothèque OpenCV. 
 
+Pour voir des hologrammes génerées, vous pouvez consulter le dossier "bin/Test" qui comporte différents tests fesant varier les paramètres phi et theta.
+
 -- COMPILATION -- 
 Le projet a été réalisé dans un environnement Linux, et peut nécessiter des étapes en plus pour le faire fonctionner sur votre machine
 
@@ -16,8 +18,6 @@ Géneration de l'éxecutable:
     
 -- EXECUTION --
 L'executable prend des paramètres en ligne de commande, et génère 2 fichiers dans "bin/Test" images représentant l'amplitude et la phase des ondes lumineuses traversant un échantillon sphérique.
-
-Il existe déjà dans ce dossier différents tests qui font varier les paramètres phi et theta.
 
 Usage:
     $ cd bin
