@@ -1,0 +1,11 @@
+S:\VS projects\Morpion\Morpion\bin\Release\Morpion.exe.config
+S:\VS projects\Morpion\Morpion\bin\Release\Morpion.exe
+S:\VS projects\Morpion\Morpion\bin\Release\Morpion.pdb
+S:\VS projects\Morpion\Morpion\obj\Release\Morpion.csprojAssemblyReference.cache
+S:\VS projects\Morpion\Morpion\obj\Release\Morpion.Fenetre2a.resources
+S:\VS projects\Morpion\Morpion\obj\Release\Morpion.Morpion.resources
+S:\VS projects\Morpion\Morpion\obj\Release\Morpion.Properties.Resources.resources
+S:\VS projects\Morpion\Morpion\obj\Release\Morpion.csproj.GenerateResource.cache
+S:\VS projects\Morpion\Morpion\obj\Release\Morpion.csproj.CoreCompileInputs.cache
+S:\VS projects\Morpion\Morpion\obj\Release\Morpion.exe
+S:\VS projects\Morpion\Morpion\obj\Release\Morpion.pdb
