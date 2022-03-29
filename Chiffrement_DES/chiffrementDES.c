@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include "tableaux_de_permutation.h"
 #include <time.h>
 
@@ -216,57 +217,59 @@ uint64_t DES_cipher(uint64_t data_64b, uint64_t key, int cipher) { // 0: chiffre
 	return data_64b;
 }
 
-//TEST
-int main() {
-	// Test Feistel round
-	/*
-	uint64_t in = 0x5A78E3944A1210F6; // 64bit
-	uint64_t key= 0x000006EDA4ACF5B5; // 48bit
+// -----FONCTIONS POUR TEST------
+uint64_t in = 0x123456ABCD132536;
+uint64_t key = 0xAABB09182736CCDD;
+
+void test1(void) {
+    printf("Test Feistel round\n");
+	uint64_t in_round = 0x5A78E3944A1210F6; // 64bit
+	uint64_t key_round= 0x000006EDA4ACF5B5; // 48bit
 	uint64_t out = 1; //64bit
 
-	printf("in:\t\t%16llX\n",in); 
+	printf("in_round:\t\t%016llX\n",in); 
+	printf("key_round:\t\t%016llX\n",key_round); 
+	
+	out = feistel_round(in_round, key_round);
+
+	printf("out:\t\t\t%016llX\n", out);
+}
+
+void test2(void) {
+    printf("Test Key generation\n");
+
 	printf("key:\t\t%016llX\n",key); 
 	
-	out = feistel_diagram(in, key);
-
-	printf("out:\t\t%016llX\n", out);
-	*/
-
-	// Test Key generation
-	/*
-	uint64_t inkey= 0xAABB09182736CCDD; 
-	uint64_t outkey = 1; 
-
 	uint64_t tbl[16] = {0};
-	keyGeneration(inkey, tbl);
+	keyGeneration(key, tbl);
 	for(int i=0; i<16; i++)
 		printf("key%i:\t\t%16llX\n",i,tbl[i]);
-	*/
 
-	// Test du chiffrement
-	/*
-	uint64_t in = 0x123456ABCD132536; 
-	uint64_t key= 0xAABB09182736CCDD; 
-	uint64_t out = 1; 
+}
+
+void test3(void) {
+    printf("Test du chiffrement\n");
 
 	printf("--CIPHER--\n"); 
-	printf("in:\t\t%16llX\n",in); 
+	printf("in:\t\t%016llX\n",in); 
 	printf("key:\t\t%016llX\n",key); 
 	
-	out = DES_cipher(in, key, 0);
+	uint64_t out_cipher = DES_cipher(in, key, 0);
 
-	printf("out:\t\t%016llX\n", out);
+	printf("out_cipher:\t%016llX\n", out_cipher);
 	
 	printf("--DECIPHER--\n"); 
 
-	out = DES_cipher(out, key, 1);
+	uint64_t out_decipher = DES_cipher(out_cipher, key, 1);
 
-	printf("out:\t\t%016llX\n", out);
-*/
+	printf("out_decipher:\t%016llX\n", out_decipher);
+	
+    // Site web pour tester les resultats http://des.online-domain-tools.com/
+}
 
-	// Calcul de la vitesse de chiffrement
-	uint64_t in = 0x123456ABCD132536; 
-	uint64_t key= 0xAABB09182736CCDD; 
+void test4(void) {
+    
+    printf("Calcul de la vitesse de chiffrement\n");
 	
 	clock_t t = clock();
 	
@@ -277,12 +280,30 @@ int main() {
 
 	t = clock()-t;
 	float tempsEnSeconde = ((float) t)/CLOCKS_PER_SEC;
-	printf("%f\n", tempsEnSeconde);
+	printf("64kb en %f secondes\n", tempsEnSeconde);
 
 	printf("%f MO/s\n", 8.f/(tempsEnSeconde));
+}
 
+int main(int argc, char** argv) {
+    int c=1;
+    if(argc>1) 
+        c = atoi(argv[1]);
+    if(argc>2)
+        in = strtoull(argv[2], NULL, 16);
+    if(argc>3)
+        key= strtoull(argv[3], NULL, 16);
+    
+    
+    printf("Choix %d\n", c);
+    switch(c) {
+        case 1: test1(); break;
+        case 2: test2(); break;
+        case 3: test3(); break;
+        case 4: test4(); break;
+        default: printf("Choisir une valeur entre 1 et 4\n"); return 1;
+    }
 
 	return 0;
 }
 
-// Site web pour tester les resultats http://des.online-domain-tools.com/
