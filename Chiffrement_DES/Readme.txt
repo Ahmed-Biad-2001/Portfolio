@@ -43,10 +43,10 @@ Exemples d'usage:
     Choix 3
     Test du chiffrement
     --CIPHER--
-    in:		        898ACD707A707961
-    key:		    123878ABC21346EF
-    out_cipher:	    1ADC77C222904C3E
+    in:             898ACD707A707961
+    key:            123878ABC21346EF
+    out_cipher:     1ADC77C222904C3E
     --DECIPHER--
-    out_decipher:	898ACD707A707961
+    out_decipher:   898ACD707A707961
     
     
